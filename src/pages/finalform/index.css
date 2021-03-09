@@ -1,0 +1,17 @@
+.formDemo {
+  margin: 10px auto;
+  width: 400px;
+  font-size: 14px;
+}
+.formDemo div {
+  display: flex;
+  height: 30px;
+  line-height: 30px;
+  margin-bottom: 10px;
+}
+.formDemo label {
+  display: inline-block;
+  width: 140px;
+  /* font-size: 12px; */
+  color: gray;
+}
