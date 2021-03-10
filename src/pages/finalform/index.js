@@ -2,7 +2,7 @@ import React from 'react';
 import { Form, Field } from 'react-final-form';
 // import { FieldMetaState } from 'react-final-form'; //field 类型
 import './index.css'
-
+import Employee from "./employee";
 const onSubmit = (values) => {
   console.log('values:', values)
 }
@@ -10,7 +10,7 @@ const FinalFormDemo = () => (
   <Form
     onSubmit={onSubmit}
     initialValues={{ firstname: 'liu' }}
-    render={({ handleSubmit, form, submitting, values, pristine }) => (
+    render={({ handleSubmit, form: { change }, submitting, values, pristine }) => (
       <form className='formDemo' onSubmit={handleSubmit}>
         <div>
           <label> First name</label>
@@ -54,17 +54,10 @@ const FinalFormDemo = () => (
 
           </Field>
         </div>
-        <div>
-          <label>employed</label>
-          <Field
-            name='employed'
-            component='input'
-            type='checkbox'
-          />
-        </div>
+        <Employee change={change} />
         <div>
           <label>&nbsp;</label>
-          <button type='submit'>submit</button>
+          <button type='submit' disabled={submitting || pristine}>submit</button>
           {/* <Button type='submit'>submit</Button> */}
 
         </div>
